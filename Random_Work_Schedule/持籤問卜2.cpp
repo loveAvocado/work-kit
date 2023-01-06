@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 #define MAX 1000
 using namespace std;
 void opening();
@@ -30,7 +31,7 @@ places[8] = {
     3,"三教",
     4,"廖凱源咖啡廳",
     5,"廖凱源五樓小教室",
-    6,"廖凱源五樓大教室",
+    6,"图书馆",
     7,"宿舍"
 };
 
@@ -55,15 +56,15 @@ struct Study {
 } 
 content[10] = {
     0,"助研",
-    1,"政心期末",
-    2,"发政期末",
-    3,"助研",
+    1,"助研",
+    2,"发展政治学期末",
+    3,"发展政治学期末",
     4,"毕业论文",
-    5,"实习报告",
-    6,"信息政策课题问题",
+    5,"毕业论文",
+    6,"托福",
     7,"托福",
-    8,"申请",
-    9,"托福"
+    8,"托福",
+    9,"申请"
 };
 
 void Zixi(){
@@ -91,6 +92,9 @@ void Xuexi() {
 
 int main () {
     opening();
+    time_t now = time(0); // 把 now 转换为字符串形式
+    char* dt = ctime(&now);
+    cout <<"今天是：" << dt ;
     printf("吃飯輸入1，學習地點輸入2，學習科目輸入3，輸入其他退出。\n");
     int inq;
     scanf("%d", &inq);
@@ -98,7 +102,7 @@ int main () {
         if (inq == 1) Chifan();
         if (inq == 2) Zixi();
         if (inq == 3) Xuexi();
-        printf("吃飯輸入1，學習地點輸入2，輸入其他內容退出\n");
+        printf("吃飯輸入1，學習地點輸入2，學習科目輸入3，輸入其他內容退出\n");
         scanf("%d", &inq);
     }  
 }
